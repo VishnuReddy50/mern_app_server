@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from "dotenv";
 import postRoutes from './routes/posts.js';
+import user from "./routes/user.js";
 
 const app = express();
 dotenv.config();
@@ -13,9 +14,8 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.use("/users", user);
 
-
-// const CONNECTION_URL = 'mongodb+srv://mernapp:mernapp123@cluster0.dfius.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
 mongoose
