@@ -3,6 +3,7 @@ import PostMessage from "../models/postMessage.js";
 
 export const getPosts = async (req, res) => {
   const { page } = req.query;
+  console.log();
 
   try {
     const LIMIT = 8;
@@ -12,6 +13,7 @@ export const getPosts = async (req, res) => {
       .sort({ _id: -1 })
       .limit(LIMIT)
       .skip(startIndex);
+    console.log(startIndex + "^^");
     res.status(200).json({
       data: posts,
       currentPage: Number(page),
